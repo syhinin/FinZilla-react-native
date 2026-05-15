@@ -2,9 +2,12 @@ import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 import { COLORS } from "@/constants/colors";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 
 export default function TabLayout() {
+  const { width } = useWindowDimensions();
+  const tabBarWidth = 200;
+
   return (
     <Tabs
       screenOptions={{
@@ -12,11 +15,10 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: COLORS.grey,
           position: "absolute",
-          bottom: 40,
-          justifyContent: "center",
-          alignSelf: "center",
+          bottom: 20,
+          marginHorizontal: (width - tabBarWidth) / 2,
+          width: tabBarWidth,
           height: 48,
-          marginHorizontal: 120,
           paddingHorizontal: 4, 
           paddingTop : 4,  
           paddingBottom: 4,       
