@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 import { COLORS } from "@/constants/colors";
+import { StyleSheet, View } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -9,19 +10,48 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: COLORS.black,
-          borderTopColor: COLORS.black,
+          backgroundColor: COLORS.grey,
+          position: "absolute",
+          bottom: 40,
+          justifyContent: "center",
+          alignSelf: "center",
+          height: 48,
+          marginHorizontal: 120,
+          paddingHorizontal: 4, 
+          paddingTop : 4,  
+          paddingBottom: 4,       
+          borderRadius: 48,
+          borderWidth: 1,
+          borderTopWidth: 1,
+          borderColor: '#333',
+          borderTopColor: '#333',
         },
-        tabBarActiveTintColor: COLORS.tintColor,
-        tabBarInactiveTintColor: COLORS.white,
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: COLORS.white,
+        tabBarInactiveTintColor: '#999',
+        
+       
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={[styles.view , focused && styles.focusedView]}>
+              <Ionicons name="pie-chart-outline" size={18} color={color} />
+            </View>
+          ),
+        }}
+      />
+       <Tabs.Screen
+        name="transactions"
+        options={{
+          title: "Transactions",
+          tabBarIcon: ({ color, size, focused }) => (
+              <View style={[styles.view , focused && styles.focusedView]}>
+                <Ionicons name="wallet-outline" size={18} color={color} />
+              </View>
           ),
         }}
       />
@@ -29,20 +59,26 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: "Profile",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="transactions"
-        options={{
-          title: "Transactions",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="wallet-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+              <View style={[styles.view , focused && styles.focusedView]}>
+                <Ionicons name="person-outline" size={18} color={color} />
+              </View>
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  view: {
+    borderRadius: 40,
+    height : 30,
+    width : 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  focusedView: {
+    backgroundColor: COLORS.tintColor,
+  },
+});
