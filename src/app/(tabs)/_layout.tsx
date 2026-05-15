@@ -1,8 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { Tabs } from "expo-router";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 
 import { COLORS } from "@/constants/colors";
-import { StyleSheet, View, useWindowDimensions } from "react-native";
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
@@ -31,8 +32,6 @@ export default function TabLayout() {
         tabBarShowLabel: false,
         tabBarActiveTintColor: COLORS.white,
         tabBarInactiveTintColor: '#999',
-        
-       
       }}
     >
       <Tabs.Screen
@@ -52,7 +51,7 @@ export default function TabLayout() {
           title: "Transactions",
           tabBarIcon: ({ color, size, focused }) => (
               <View style={[styles.view , focused && styles.focusedView]}>
-                <Ionicons name="wallet-outline" size={18} color={color} />
+                <AntDesign name="swap" size={18} color={color} />
               </View>
           ),
         }}
