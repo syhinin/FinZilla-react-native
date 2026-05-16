@@ -1,12 +1,12 @@
-import { COLORS } from "@/constants/colors";
 import { StyleSheet, Text, View } from "react-native";
+import { COLORS } from "../../utils/constants/colors";
 
 export default function Profile() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Profile</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Profile</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

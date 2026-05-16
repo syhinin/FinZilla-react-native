@@ -1,32 +1,36 @@
-import { Image } from 'expo-image';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image } from "expo-image";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { COLORS } from '@/constants/colors';
+import { COLORS } from "../../utils/constants/colors";
 
-export default function Header() {
+export function Header() {
   const handleShowTransactions = () => {
-    console.log("hello")
-  }
-    
-    return (
-      <SafeAreaView style={styles.safeAreaView}>
-        <View style={styles.container}>
-          <View style={styles.userInfoWrapper}>
-            <Image style={styles.logo} source={require('@/images/logo.jpg')} />
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Hi, Alex</Text>
-              <Text style={styles.subText}>Your <Text style={styles.textBold}>Budget</Text></Text>
-            </View>
+    console.log("hello");
+  };
 
+  return (
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.container}>
+        <View style={styles.userInfoWrapper}>
+          <Image style={styles.logo} source={require("@/images/logo.jpg")} />
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Hi, Alex</Text>
+            <Text style={styles.subText}>
+              Your <Text style={styles.textBold}>Budget</Text>
+            </Text>
           </View>
-          <TouchableOpacity style={styles.button} onPress={handleShowTransactions} >
-            <Text style={styles.text}>My Transactions</Text>
-          </TouchableOpacity>
         </View>
-      </SafeAreaView>
-    );
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleShowTransactions}
+        >
+          <Text style={styles.text}>My Transactions</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -34,21 +38,20 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.black,
   },
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 70,
-    width: '100%',
-    paddingHorizontal: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: 50,
+    width: "100%",
     backgroundColor: COLORS.black,
   },
   userInfoWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },  
+    flexDirection: "row",
+    alignItems: "center",
+  },
   textContainer: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    flexDirection: "column",
+    alignItems: "flex-start",
     gap: 1,
     marginLeft: 10,
   },
@@ -68,11 +71,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textBold: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   logo: {
     width: 50,
     height: 50,
     borderRadius: 50,
-  },  
+  },
 });
