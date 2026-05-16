@@ -1,30 +1,24 @@
 import { Tabs } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 
-import Header from "@/components/UI/Header";
-import { COLORS } from "@/constants/colors";
+import { ExpenseSummary, Header } from "@/components";
 
 export default function Index() {
   return (
     <>
       <Tabs.Screen options={{ headerShown: true , header: () => <Header /> }} />
-      <View style={styles.container}>
-        <Text style={styles.text}>FinZilla</Text>
-      </View>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <ExpenseSummary />
+      </ScrollView>
     </>
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: COLORS.black,
-  },
-   text: {
-    color: COLORS.white,
-    fontSize: 30,
+  
+    //_________TEMPORARY BORDER TO CHECK LAYOUT________//
+    // borderWidth: 1,
+    // borderColor: COLORS.white,
   },
 });

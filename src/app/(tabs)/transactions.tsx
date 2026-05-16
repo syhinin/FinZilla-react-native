@@ -1,12 +1,12 @@
-import { COLORS } from "@/constants/colors";
 import { StyleSheet, Text, View } from "react-native";
+import { COLORS } from "../../utils/constants/colors";
 
 export default function Transactions() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Transactions</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Transactions</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: COLORS.black,
   },
-   text: {
+  text: {
     color: COLORS.white,
     fontSize: 30,
   },
